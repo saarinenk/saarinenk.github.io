@@ -1,6 +1,27 @@
+:root {
+  --highlight-color: #f6cdca;
+  --text-color: #664a4b;
+  --text-color-light: #f9f0f0;
+  --circle-width: 500px;
+  --circle-width-mobile: 300px;
+}
+
+html {
+  background: url(img/bg-pink.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
   font-family: "Quicksand", serif;
+}
+
+html,
+body {
   margin: 0;
+  height: 100%;
 }
 
 h1,
@@ -10,46 +31,18 @@ h2 {
 }
 
 h1 {
-  font-size: 3vw;
+  font-size: 50px;
   overflow: hidden;
   text-align: center;
-  color: #f7f4e1;
-  padding-bottom: 10px;
+  color: var(--text-color);
+  margin-bottom: 20px;
 }
 
-h2 {
-  font-size: 2vw;
-  color: #c8ccbd;
-}
-
-#content {
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
-  background-image: url(img/bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.container {
-  position: relative;
-}
-
-h1,
-h3 {
-  position: relative;
-}
-
-h3 {
-  margin-bottom: -10px;
-}
-
-h1:before,
-h1:after {
-  background-color: #c8ccbd;
+.test {
+  background-color: var(--text-color);
   content: "";
   display: inline-block;
-  height: 2px;
+  height: 2.5px;
   position: relative;
   vertical-align: middle;
   width: 3%;
@@ -65,21 +58,40 @@ h1:after {
   margin-right: -50%;
 }
 
+h2 {
+  text-transform: uppercase;
+  font-size: 28px;
+  color: var(--text-color-light);
+}
+
+#content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#title,
 .flip-card {
-  position: absolute;
+  height: var(--circle-width);
+  width: var(--circle-width);
   border-radius: 50%;
-  width: 500px;
-  height: 500px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+}
+
+#title > div {
+  max-width: var(--circle-width);
+}
+
+.flip-card {
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   background-color: transparent;
 }
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -94,8 +106,7 @@ h1:after {
 
 /* Position the front and back side */
 #title,
-#myPic {
-  position: absolute;
+#profilePic {
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
@@ -103,11 +114,8 @@ h1:after {
 }
 
 #title {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 35vw;
-  background-color: #476877;
+  position: absolute;
+  background-color: var(--highlight-color);
   opacity: 0.8;
   border-radius: 50%;
 }
@@ -117,33 +125,53 @@ h1:after {
 }
 
 /* Style the back side */
-#myPic {
+#profilePic {
   transform: rotateY(180deg);
 }
 
-#katri {
+#profilePic img {
   width: 100%;
   border-radius: 50%;
 }
 
+.someIcons {
+  bottom: 10%;
+  width: var(--circle-width);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.someIcons img {
+  width: 30px;
+  opacity: 0.5;
+}
+
+.someIcons img:hover {
+  opacity: 1;
+}
+
 @media (max-width: 640px) {
-  #circle {
-    width: 70%;
-    padding-bottom: 70%;
-    top: 30%;
+  #title > div {
+    max-width: var(--circle-width-mobile);
   }
 
-  #title {
-    width: 65%;
-    top: 30%;
+  #title,
+  .flip-card {
+    height: var(--circle-width-mobile);
+    width: var(--circle-width-mobile);
   }
 
   h1 {
-    font-size: 6vw;
+    font-size: 30px;
     padding-bottom: 5px;
   }
 
   h2 {
-    font-size: 3.5vw;
+    font-size: 20px;
+  }
+
+  .someIcons {
+    width: var(--circle-width-mobile);
   }
 }
