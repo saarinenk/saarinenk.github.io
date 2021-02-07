@@ -100,7 +100,8 @@ h2 {
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner,
+.flip-card:active .flip-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -164,11 +165,10 @@ h2 {
 
   h1 {
     font-size: 30px;
-    padding-bottom: 5px;
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .someIcons {
